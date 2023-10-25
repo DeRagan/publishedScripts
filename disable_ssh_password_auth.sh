@@ -22,13 +22,13 @@ if [ "$keys_added" != "y" ]; then
 fi
 
 # Add an include directive to load additional SSH configuration files
-echo "Include /etc/ssh/sshd_config.d/*.conf" | sudo tee -a /etc/ssh/sshd_config
+sudo echo -e "Include /etc/ssh/sshd_config.d/*.conf >> /etc/ssh/sshd_config
 
 # Configure SSH settings to enhance security by disabling root login
-echo "ChallengeResponseAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/disable_root_login.conf
-echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/disable_root_login.conf
-echo "UsePAM no" | sudo tee -a /etc/ssh/sshd_config.d/disable_root_login.conf
-echo "PermitRootLogin no" | sudo tee -a /etc/ssh/sshd_config.d/disable_root_login.conf
+sudo echo -e "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config.d/disable_root_login.conf
+sudo echo -e "PasswordAuthentication no" >> /etc/ssh/sshd_config.d/disable_root_login.conf
+sudo echo -e "UsePAM no" >> /etc/ssh/sshd_config.d/disable_root_login.conf
+sudo echo -e "PermitRootLogin no" >> /etc/ssh/sshd_config.d/disable_root_login.conf
 
 # Restart the SSH service to apply the changes
 sudo systemctl restart ssh
