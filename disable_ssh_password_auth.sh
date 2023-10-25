@@ -16,7 +16,7 @@ cp "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.bak"
 sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' "$SSH_CONFIG_FILE"
 sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' "$SSH_CONFIG_FILE"
 sed -i 's/^PermitRootLogin prohibit-password/PermitRootLogin no/' "$SSH_CONFIG_FILE"
-sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication no/' "$SSH_CONFIG_FILE"
+sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' "$SSH_CONFIG_FILE"
 sed -i 's/^ChallengeResponseAuthentication yes/ChallengeResponseAuthentication no/' "$SSH_CONFIG_FILE"
 
 # Restart the SSH service
