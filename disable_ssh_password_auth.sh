@@ -13,14 +13,14 @@ fi
 cp "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.bak"
 
 # Disable password authentication, enable key-based authentication, and set ChallengeResponseAuthentication to no
-sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' "$SSH_CONFIG_FILE"
-sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' "$SSH_CONFIG_FILE"
-sed -i 's/^PermitRootLogin prohibit-password/PermitRootLogin no/' "$SSH_CONFIG_FILE"
-sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' "$SSH_CONFIG_FILE"
-sed -i 's/^ChallengeResponseAuthentication yes/ChallengeResponseAuthentication no/' "$SSH_CONFIG_FILE"
+sudo sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' "$SSH_CONFIG_FILE"
+sudo sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' "$SSH_CONFIG_FILE"
+sudo sed -i 's/^PermitRootLogin prohibit-password/PermitRootLogin no/' "$SSH_CONFIG_FILE"
+sudo sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' "$SSH_CONFIG_FILE"
+sudo sed -i 's/^ChallengeResponseAuthentication yes/ChallengeResponseAuthentication no/' "$SSH_CONFIG_FILE"
 
 # Restart the SSH service
-systemctl restart ssh
+sudo systemctl restart ssh
 
 echo "Password SSH access has been disabled, and ChallengeResponseAuthentication is set to no. Only key-based authentication is allowed."
 
