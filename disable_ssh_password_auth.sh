@@ -22,7 +22,7 @@ if [ "$keys_added" != "y" ]; then
 fi
 
 # Add an include directive to load additional SSH configuration files
-sudo echo -e "Include /etc/ssh/sshd_config.d/*.conf >> /etc/ssh/sshd_config
+sudo echo -e "Include /etc/ssh/sshd_config.d/*.conf" >> /etc/ssh/sshd_config
 
 # Configure SSH settings to enhance security by disabling root login
 sudo echo -e "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config.d/disable_root_login.conf
